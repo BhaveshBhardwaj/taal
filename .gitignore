@@ -1,0 +1,18 @@
+# Build Binaries and Objects
+*.exe
+*.o
+*.obj
+*.pdb
+*.ilk
+*.idb
+
+# IDE & Editor Configs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS Artifacts
+Thumbs.db
+Desktop.ini
+.DS_Store

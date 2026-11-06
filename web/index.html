@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TAAL: Turning Delhi's Unison into Polyrhythm</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="brand">
+        <div class="logo-icon">🪘</div>
+        <div>
+          <h1>TAAL: Turning Delhi's Unison into Polyrhythm</h1>
+          <p class="subtitle">Delhi Technological University · Local Community Level Innovation · Chandni Chowk Corridor</p>
+        </div>
+      </div>
+      <div class="header-badges">
+        <span class="badge badge-accent">Core Thesis: Phase Coherence R(t)</span>
+        <span class="badge badge-dpdp">DPDP Act 2023 Compliant</span>
+        <span class="badge badge-shield">Resident Shield Active</span>
+      </div>
+    </header>
+
+    <!-- Executive Hypothesis Banner -->
+    <section class="hypothesis-banner">
+      <div class="banner-content">
+        <div class="quote-mark">“</div>
+        <p><strong>Hypothesis:</strong> Urban stress is driven by the <em>phase coherence</em> of decisions, not the headcount. 10,000 people spread across 8 hours is easier on the system than 4,000 people in 20 minutes.</p>
+      </div>
+      <div class="mode-toggle-card">
+        <span class="label">Operating Mode:</span>
+        <div class="segmented-control">
+          <button id="btnUnison" class="btn-segment active">Unison (Status Quo)</button>
+          <button id="btnPolyrhythm" class="btn-segment">TAAL Polyrhythm</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Telemetry Gauges -->
+    <section class="telemetry-grid">
+      <div class="telemetry-card">
+        <div class="card-header">Kuramoto DPI R(t)</div>
+        <div class="card-value" id="valDpi">0.80</div>
+        <div class="card-caption" id="capDpi">High Coherence (Lockstep Unison)</div>
+        <div class="progress-bar"><div id="barDpi" class="bar-fill alert" style="width: 80%;"></div></div>
+      </div>
+      <div class="telemetry-card">
+        <div class="card-header">Peak Gate Wait Time</div>
+        <div class="card-value" id="valGate">8.4 min</div>
+        <div class="card-caption" id="capGate">Lahore Gate Chokepoint</div>
+        <div class="progress-bar"><div id="barGate" class="bar-fill warning" style="width: 70%;"></div></div>
+      </div>
+      <div class="telemetry-card">
+        <div class="card-header">11kV Feeder Loading</div>
+        <div class="card-value" id="valFeeder">100.1%</div>
+        <div class="card-caption" id="capFeeder">Transformer Overloaded (1,001 kVA)</div>
+        <div class="progress-bar"><div id="barFeeder" class="bar-fill alert" style="width: 100%;"></div></div>
+      </div>
+      <div class="telemetry-card">
+        <div class="card-header">Effective Capacity</div>
+        <div class="card-value" id="valCapacity">Baseline</div>
+        <div class="card-caption" id="capCapacity">Throughput without Overload</div>
+        <div class="progress-bar"><div id="barCapacity" class="bar-fill success" style="width: 55%;"></div></div>
+      </div>
+      <div class="telemetry-card">
+        <div class="card-header">Resident Shield Status</div>
+        <div class="card-value success-text" id="valShield">Auto-Veto ON</div>
+        <div class="card-caption" id="capShield">Δ Resident Burden = 0.0</div>
+        <div class="progress-bar"><div id="barShield" class="bar-fill success" style="width: 100%;"></div></div>
+      </div>
+    </section>
+
+    <!-- Main Visual Split: Kuramoto Phase Dial & Cascade Lag Map -->
+    <div class="grid-2col">
+      <!-- Kuramoto Phase Circle -->
+      <div class="panel">
+        <div class="panel-header">
+          <h2>1. Kuramoto Decision-Phase Index (DPI)</h2>
+          <span class="tag">Feature 1</span>
+        </div>
+        <p class="panel-desc">Visualizing visitor decision phases $\theta_j \in [0, 2\pi)$ on a 24-hour periodic clock. The center vector length represents the Kuramoto order parameter $R(t)$.</p>
+        <div class="canvas-wrap">
+          <canvas id="kuramotoCanvas" width="460" height="380"></canvas>
+        </div>
+        <div class="canvas-legend">
+          <span><i class="dot dot-unison"></i> Unison Cluster (Show End 21:00)</span>
+          <span><i class="dot dot-wave1"></i> Wave 1</span>
+          <span><i class="dot dot-wave2"></i> Wave 2</span>
+          <span><i class="dot dot-wave3"></i> Wave 3</span>
+          <span><i class="dot dot-wave4"></i> Wave 4</span>
+        </div>
+      </div>
+
+      <!-- Cascade Lag Map -->
+      <div class="panel">
+        <div class="panel-header">
+          <h2>2. Cascade Lag Map (DISCOM 90m Warning)</h2>
+          <span class="tag">Feature 3</span>
+        </div>
+        <p class="panel-desc">Cross-system Directed Acyclic Graph tracking propagation delays. Alerts power DISCOMs 90 minutes before peak feeder transformer load.</p>
+        
+        <div class="cascade-flow">
+          <div class="cascade-step">
+            <div class="step-badge">T + 0 min</div>
+            <div class="step-card">
+              <h4>Show Ends</h4>
+              <p>Red Fort Grounds (3,500 visitors release)</p>
+            </div>
+          </div>
+          <div class="arrow-down">↓ +8 min</div>
+          <div class="cascade-step">
+            <div class="step-badge">T + 8 min</div>
+            <div class="step-card">
+              <h4>Gate Crush</h4>
+              <p>Lahore Gate & Chatta Chowk bottleneck</p>
+            </div>
+          </div>
+          <div class="arrow-down">↓ +12 min (+20m total)</div>
+          <div class="cascade-step">
+            <div class="step-badge">T + 20 min</div>
+            <div class="step-card">
+              <h4>Transit Queue</h4>
+              <p>Chandni Chowk Metro & E-Rickshaw Stand</p>
+            </div>
+          </div>
+          <div class="arrow-down">↓ +30 min (+50m total)</div>
+          <div class="cascade-step">
+            <div class="step-badge">T + 50 min</div>
+            <div class="step-card">
+              <h4>EV Charger Spike</h4>
+              <p>300+ rickshaws plug into fast chargers</p>
+            </div>
+          </div>
+          <div class="arrow-down">↓ +40 min (+90m total)</div>
+          <div class="cascade-step">
+            <div class="step-badge alert-badge">T + 90 min</div>
+            <div class="step-card highlight-card">
+              <h4>11kV Feeder Peak</h4>
+              <p>Transformer reaches peak kVA load (DISCOM alert triggered!)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Corridor Map & Twin Moments -->
+    <div class="grid-2col">
+      <!-- Corridor Digital Twin Map -->
+      <div class="panel">
+        <div class="panel-header">
+          <h2>3. Chandni Chowk - Red Fort Corridor Twin</h2>
+          <span class="tag">Feature 7</span>
+        </div>
+        <p class="panel-desc">Simulating 10,000+ autonomous agents, battery swap relays, and residential mohalla alleys.</p>
+        <div class="corridor-map">
+          <div class="map-node node-monument" style="top: 25%; left: 15%;">
+            <div class="node-icon">🏰</div>
+            <div class="node-title">Red Fort Grounds</div>
+            <div class="node-meta" id="mapRedFort">Capacity: 5000</div>
+          </div>
+          <div class="map-node node-gate" style="top: 25%; left: 45%;">
+            <div class="node-icon">🚪</div>
+            <div class="node-title">Lahore Gate</div>
+            <div class="node-meta" id="mapGate">Wait: 8.4m</div>
+          </div>
+          <div class="map-node node-transit" style="top: 25%; left: 75%;">
+            <div class="node-icon">🚇</div>
+            <div class="node-title">Chandni Chowk Metro</div>
+            <div class="node-meta" id="mapMetro">Platform: 0.48 p/m²</div>
+          </div>
+          <div class="map-node node-resident" style="top: 65%; left: 20%;">
+            <div class="node-icon">🏘️</div>
+            <div class="node-title">Ballimaran Mohalla</div>
+            <div class="node-meta badge-veto">SHIELD AUTO-VETO</div>
+          </div>
+          <div class="map-node node-resident" style="top: 65%; left: 50%;">
+            <div class="node-icon">🏘️</div>
+            <div class="node-title">Dariba Kalan Haveli</div>
+            <div class="node-meta badge-veto">NOISE CEILING: 53 dB</div>
+          </div>
+          <div class="map-node node-grid" style="top: 65%; left: 80%;">
+            <div class="node-icon">⚡</div>
+            <div class="node-title">11kV Feeder & Battery</div>
+            <div class="node-meta" id="mapBattery">BESS Buffer: 300 kW</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Polyrhythm Menu & Twin Moments -->
+      <div class="panel">
+        <div class="panel-header">
+          <h2>4. Polyrhythm Menu ("Twin Moments")</h2>
+          <span class="tag">Features 8 & 9</span>
+        </div>
+        <p class="panel-desc">Equal-Delight Score ($EDS \ge 0.82$) alternatives backed by quota lottery and diversity floor.</p>
+        
+        <div class="twin-moments-list">
+          <div class="twin-card">
+            <div class="twin-header">
+              <span class="twin-name">Sunder Nursery Heritage Park</span>
+              <span class="twin-score">EDS: 0.95</span>
+            </div>
+            <p class="twin-perk">Mughal water-canals, artisanal café, zero gate queues</p>
+            <div class="twin-footer">
+              <span>Rating: 4.8 ★</span>
+              <span>Dwell: 130 min</span>
+              <span class="quota-badge">Lottery Quota: 29%</span>
+            </div>
+          </div>
+
+          <div class="twin-card">
+            <div class="twin-header">
+              <span class="twin-name">Humayun's Tomb Mughal Gardens</span>
+              <span class="twin-score">EDS: 0.95</span>
+            </div>
+            <p class="twin-perk">Charbagh garden twilight walk with illuminated sandstone arches</p>
+            <div class="twin-footer">
+              <span>Rating: 4.7 ★</span>
+              <span>Dwell: 105 min</span>
+              <span class="quota-badge">Lottery Quota: 23%</span>
+            </div>
+          </div>
+
+          <div class="twin-card">
+            <div class="twin-header">
+              <span class="twin-name">Purana Qila & Lake Boating</span>
+              <span class="twin-score">EDS: 0.88</span>
+            </div>
+            <p class="twin-perk">Ancient ramparts walk + evening lake breeze</p>
+            <div class="twin-footer">
+              <span>Rating: 4.5 ★</span>
+              <span>Dwell: 90 min</span>
+              <span class="quota-badge">Lottery Quota: 15%</span>
+            </div>
+          </div>
+
+          <div class="twin-card">
+            <div class="twin-header">
+              <span class="twin-name">Lodhi Garden Historic Domes</span>
+              <span class="twin-score">EDS: 0.88</span>
+            </div>
+            <p class="twin-perk">15th-century Sayyid & Lodi architectural walk in lush greenery</p>
+            <div class="twin-footer">
+              <span>Rating: 4.7 ★</span>
+              <span>Dwell: 85 min</span>
+              <span class="quota-badge">Lottery Quota: 22%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Advanced Delhi Innovations: Transport, Energy & Tourism -->
+    <div class="grid-2col">
+      <!-- DMRC Dual-Station Load Splitter & Transit Headways -->
+      <div class="panel">
+        <div class="panel-header">
+          <h2>5. DMRC Dual-Station Headway Splitter (Transport)</h2>
+          <span class="tag">Feature 22</span>
+        </div>
+        <p class="panel-desc">Synchronizes exit pulses with train headways, splitting loads between Yellow and Violet lines.</p>
+        <div class="transit-compare">
+          <div class="transit-card alert-border">
+            <div class="transit-title">Chandni Chowk Station (Yellow Line)</div>
+            <div class="transit-metric">Platform Density: <strong>2.8 p/m²</strong> (Crush)</div>
+            <div class="transit-metric">Queue Wait: <strong>8.5 min</strong> · Walk: 750m</div>
+            <span class="transit-badge badge-crushed">OVERCROWDED</span>
+          </div>
+          <div class="transit-card success-border">
+            <div class="transit-title">Lal Qila Station (Violet Line)</div>
+            <div class="transit-metric">Platform Density: <strong>0.7 p/m²</strong> (Tranquil)</div>
+            <div class="transit-metric">Queue Wait: <strong>1.0 min</strong> · Walk: 380m</div>
+            <span class="transit-badge badge-incentive">+40 Phase Credits Incentive</span>
+          </div>
+        </div>
+        <div class="guidance-banner">
+          <span class="guidance-icon">📢</span>
+          <p><strong>TAAL Dynamic Guidance:</strong> "Divert 85% of Red Fort crowds to Lal Qila Metro (Violet Line). Zero wait, air-conditioned concourse, +40 credits redeemable at local traders."</p>
+        </div>
+      </div>
+
+      <!-- Transformer Thermal IEEE C57.91 Derating & Battery Swap VPP -->
+      <div class="panel">
+        <div class="panel-header">
+          <h2>6. Transformer Thermal Physics & Battery Swap VPP (Energy)</h2>
+          <span class="tag">Features 21 & 23</span>
+        </div>
+        <p class="panel-desc">IEEE C57.91 thermal hot-spot calculation under Delhi 46°C heat paired with 4-kiosk battery swap VPP.</p>
+        <div class="thermal-grid">
+          <div class="thermal-card">
+            <div class="thermal-label">Ambient Temp</div>
+            <div class="thermal-val">46.0°C</div>
+            <div class="thermal-sub">Extreme Summer Heat</div>
+          </div>
+          <div class="thermal-card">
+            <div class="thermal-label">Derated Capacity</div>
+            <div class="thermal-val alert-text">760 kVA</div>
+            <div class="thermal-sub">-24% from 1000 kVA rating</div>
+          </div>
+          <div class="thermal-card">
+            <div class="thermal-label">VPP Grid Shaved</div>
+            <div class="thermal-val success-text">-365 kW</div>
+            <div class="thermal-sub">146 battery docks curtailed</div>
+          </div>
+          <div class="thermal-card">
+            <div class="thermal-label">Driver Swap Speed</div>
+            <div class="thermal-val">90 sec</div>
+            <div class="thermal-sub">Zero idle charging wait</div>
+          </div>
+        </div>
+        <div class="vpp-status-box">
+          <span class="vpp-pulse"></span>
+          <span><strong>Virtual Power Plant (VPP) Active:</strong> Mori Gate, Kashmere Gate & Asaf Ali depots absorbing 365 kW solar by day; curtails grid draw to zero during 21:00 exit surge.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cool-Corridor Microclimate & Mohalla Merchant Marketplace -->
+    <div class="grid-2col">
+      <!-- Cool-Corridor Routing -->
+      <div class="panel">
+        <div class="panel-header">
+          <h2>7. Cool-Corridor Microclimate Routing (Tourism + Climate)</h2>
+          <span class="tag">Feature 24</span>
+        </div>
+        <p class="panel-desc">Navigates shaded covered katras with 5.6°C passive cooling over sun-baked asphalt.</p>
+        <div class="microclimate-box">
+          <div class="climate-route route-open">
+            <h4>Direct Open Arterial (Netaji Subhash Marg)</h4>
+            <div class="temp-display">48.5°C <span>Perceived Heat</span></div>
+            <p>0% shade, black asphalt radiant heat (+3.5°C). <strong>Severe Heatstroke Hazard!</strong></p>
+          </div>
+          <div class="climate-route route-cool">
+            <h4>Shaded Heritage Katra Cool-Corridor</h4>
+            <div class="temp-display cool-text">39.4°C <span>Perceived Heat (-5.6°C)</span></div>
+            <p>Chatta Chowk vaulted arcade & Dariba Kalan havelis with passive ventilation and misting.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mohalla Merchant Boosters -->
+      <div class="panel">
+        <div class="panel-header">
+          <h2>8. Mohalla Merchant Booster Marketplace (Local Community)</h2>
+          <span class="tag">Feature 25</span>
+        </div>
+        <p class="panel-desc">Historic Old Delhi family businesses bid Phase Credit boosters to attract afternoon footfall.</p>
+        <div class="merchant-boosters">
+          <div class="booster-card">
+            <div class="booster-header">
+              <span class="shop-name">Pt. Gaya Prasad Shiv Charan (Est. 1872)</span>
+              <span class="booster-credits">+40 Credits</span>
+            </div>
+            <p class="booster-perk">Paranthe Wali Gali · Free Rabri Lassi + 10% Heritage Discount (14:30 - 17:00)</p>
+          </div>
+          <div class="booster-card">
+            <div class="booster-header">
+              <span class="shop-name">Mehlawat Spices (Khari Baoli)</span>
+              <span class="booster-credits">+50 Credits</span>
+            </div>
+            <p class="booster-perk">Asia's largest spice market · Free Kashmiri Saffron sample pouch (13:00 - 16:00)</p>
+          </div>
+          <div class="booster-card">
+            <div class="booster-header">
+              <span class="shop-name">Gulab Singh Johrimal (Est. 1816)</span>
+              <span class="booster-credits">+35 Credits</span>
+            </div>
+            <p class="booster-perk">Dariba Kalan · Complimentary Ruh Gulab attar vial on purchases (15:00 - 18:00)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Prior-Art & Novelty Benchmarking Matrix -->
+    <section class="panel">
+      <div class="panel-header">
+        <h2>9. Prior-Art & Novelty Benchmarking Matrix</h2>
+        <span class="tag">Feature 26 · World-First Proof</span>
+      </div>
+      <table class="scorecard-table">
+        <thead>
+          <tr>
+            <th>System</th>
+            <th>Measurement Primitive</th>
+            <th>Cross-System Coupling</th>
+            <th>Herding Prevention</th>
+            <th>Resident Protection</th>
+            <th>Energy & Climate</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Google Maps / Waze</strong></td>
+            <td>Headcount volume & GPS speed</td>
+            <td>Siloed to roads</td>
+            <td>None (Induces secondary herding)</td>
+            <td>Negative (Traffic spills into quiet lanes)</td>
+            <td>Unaware of power grid</td>
+          </tr>
+          <tr>
+            <td><strong>Singapore ERP 2.0 / Uber</strong></td>
+            <td>Volume & occupancy</td>
+            <td>Siloed to tolls</td>
+            <td>Monetary price discrimination</td>
+            <td>None (Residents taxed equally)</td>
+            <td>Uncoupled from EV charging peaks</td>
+          </tr>
+          <tr>
+            <td><strong>Disney Virtual Queue / ASI</strong></td>
+            <td>Hourly ticket quotas</td>
+            <td>Siloed to single venue gate</td>
+            <td>Single-winner queue crush</td>
+            <td>Afterthought (Surrounding city choked)</td>
+            <td>Unaware of transformer limits</td>
+          </tr>
+          <tr>
+            <td><strong>Standard EV Smart Charging</strong></td>
+            <td>TOU grid tariffs</td>
+            <td>Siloed to charging poles</td>
+            <td>EVs cluster at cheap hours</td>
+            <td>None (Neighborhood transformer fires)</td>
+            <td>Blind to visitor cultural shows</td>
+          </tr>
+          <tr class="highlight-row">
+            <td><strong>TAAL (Our Platform)</strong></td>
+            <td><strong>Phase Coherence R(t)</strong></td>
+            <td><strong>Coupled DAG: Transit→EV→Grid</strong></td>
+            <td><strong>Quota Lottery + Diversity Floor</strong></td>
+            <td><strong>Resident Shield Hard Auto-Veto</strong></td>
+            <td><strong>IEEE C57.91 Thermal + Swap VPP</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Canonical Validation Scorecard Table (Page 5) -->
+    <section class="panel">
+      <div class="panel-header">
+        <h2>10. Canonical Validation Metrics Scorecard</h2>
+        <span class="tag">Specification Page 5 Invariants</span>
+      </div>
+      <table class="scorecard-table">
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>What it Shows</th>
+            <th>Unison (Baseline)</th>
+            <th>TAAL (Polyrhythm)</th>
+            <th>Invariant / Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>DPI Reduction at Pacemakers</strong></td>
+            <td>Synchrony actually broken</td>
+            <td>R = 0.80</td>
+            <td>R = 0.01</td>
+            <td><span class="status-pass">PASSED (-0.79 Phase Decorrelation)</span></td>
+          </tr>
+          <tr>
+            <td><strong>Peak Queue Time</strong></td>
+            <td>Stress outcomes</td>
+            <td>8.4 min</td>
+            <td>0.0 min</td>
+            <td><span class="status-pass">PASSED (-100% Gate Wait)</span></td>
+          </tr>
+          <tr>
+            <td><strong>Feeder Loading %</strong></td>
+            <td>Grid transformer safety</td>
+            <td>100.1% (Overload)</td>
+            <td>50.5% (Safe)</td>
+            <td><span class="status-pass">PASSED (0 min Overload)</span></td>
+          </tr>
+          <tr>
+            <td><strong>Effective Capacity</strong></td>
+            <td>Visitors served before threshold</td>
+            <td>100% baseline</td>
+            <td>168.4% (+68.4%)</td>
+            <td><span class="status-pass">PASSED (Headline Result)</span></td>
+          </tr>
+          <tr>
+            <td><strong>Resident Ledger Delta</strong></td>
+            <td>No cost shifting to residents</td>
+            <td>+45% footfall spill</td>
+            <td>Δ ≤ 0 (0 spillover)</td>
+            <td><span class="status-pass">PASSED (Shield Auto-Veto)</span></td>
+          </tr>
+          <tr>
+            <td><strong>Trip-Satisfaction Delta</strong></td>
+            <td>No spoiled trips</td>
+            <td>0.99</td>
+            <td>1.00 (+1.2%)</td>
+            <td><span class="status-pass">PASSED (Regret Bound ≤ 0.35)</span></td>
+          </tr>
+          <tr>
+            <td><strong>Suggestion Entropy</strong></td>
+            <td>No herding onto new peaks</td>
+            <td>Single option (HHI = 1.0)</td>
+            <td>HHI = 0.224</td>
+            <td><span class="status-pass">PASSED (Entropy Floor Intact)</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>TAAL Architectural Platform · Delhi Technological University (DTU) · National Theme: Local Community Level Innovation</p>
+      <p>Implemented in modern C++20 with modular Layer 1-5 engines · Fully compliant with DPDP Act 2023</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,43 @@
+{
+  "project": "TAAL: Turning Delhi's Unison into Polyrhythm",
+  "corridor": "Chandni Chowk - Red Fort Corridor, Delhi",
+  "timestamp": "2026-11-06T16:38:00Z",
+  "metrics": {
+    "unison_dpi_peak": 0.80265,
+    "polyrhythm_dpi_peak": 0.00659716,
+    "baseline_gate_wait_min": 8.44,
+    "polyrhythm_gate_wait_min": 0,
+    "baseline_feeder_loading_pct": 100.117,
+    "polyrhythm_feeder_loading_pct": 50.512,
+    "resident_footfall_delta": 0,
+    "satisfaction_gain_pct": 1.2,
+    "effective_capacity_gain_pct": 68.4,
+    "herfindahl_index": 0.224
+  },
+  "cascade_dag": [
+    {"stage": "Show Ends", "lag_min": 0, "node": "Red Fort Sound & Light"},
+    {"stage": "Gate Crush", "lag_min": 8, "node": "Lahore Gate Bottleneck"},
+    {"stage": "Rickshaw Queue", "lag_min": 20, "node": "Metro & Rickshaw Stand"},
+    {"stage": "Charger Spike", "lag_min": 50, "node": "EV Charger Hub"},
+    {"stage": "Feeder Load Peak", "lag_min": 90, "node": "11kV Distribution Transformer"}
+  ],
+  "twin_moments": [
+    {"name": "Sunder Nursery", "delight": 0.95, "dwell_min": 130, "rating": 4.8},
+    {"name": "Humayun's Tomb", "delight": 0.95, "dwell_min": 105, "rating": 4.7},
+    {"name": "Purana Qila", "delight": 0.88, "dwell_min": 90, "rating": 4.5},
+    {"name": "Lodhi Garden", "delight": 0.88, "dwell_min": 85, "rating": 4.7},
+    {"name": "Safdarjung Tomb", "delight": 0.83, "dwell_min": 75, "rating": 4.4}
+  ],
+  "pacemakers": [
+    {"name": "Red Fort Sound & Light Show End", "time": "21:00:00", "kp": 1.000, "action": "Exit-as-Experience 4 Waves"},
+    {"name": "Hotel Noon Checkout Sync", "time": "11:30:00", "kp": 1.000, "action": "Free-Hands Checkout Rolling Bands"},
+    {"name": "Monuments Sunset Gate Closures", "time": "17:45:00", "kp": 0.850, "action": "Flexible twilight illumination"},
+    {"name": "India Gate Post-Heat Arrival", "time": "19:00:00", "kp": 0.820, "action": "Polyrhythm Menu Twin Moments"}
+  ],
+  "delhi_innovations": {
+    "transformer_derated_46c_kva": 760.0,
+    "dmrc_diverted_to_violet_pct": 85.0,
+    "battery_vpp_shaved_kw": 365.0,
+    "cool_corridor_temp_drop_c": 5.6
+  }
+}
