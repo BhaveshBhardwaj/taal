@@ -93,6 +93,12 @@ Verified via `.\taal_engine.exe validate`:
 
 ## 5. Building & Running
 
+### Clone Repository
+```bash
+git clone https://github.com/BhaveshBhardwaj/taal.git
+cd taal
+```
+
 ### Requirements
 - Modern C++20 compiler (`g++` 11+, `clang++` 14+, or MSVC 2022)
 - Windows / Linux / macOS
